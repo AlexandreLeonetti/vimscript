@@ -1,0 +1,50 @@
+set nocompatible " required
+filetype off    " required
+
+"set the runtime path to include Vundle and initialise
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+
+
+Plugin 'gmarik/Vundle.vim'
+
+call vundle#end() " required
+filetype plugin indent on "required
+
+set rnu
+set nowrap
+noremap <space> viw
+noremap - dd2jp
+noremap _ dd2kp
+inoremap <c-u> <Esc>viwUi
+noremap <c-u> viwU
+inoremap bn <Esc>
+nnoremap bn <Esc>  
+vnoremap bn <Esc> 
+let mapleader = "-"
+nnoremap <leader>ev :vsplit $MYVIMRC<cr> 
+iabbrev dv <div>
+iabbrev vd </div>
+nnoremap <leader>" viw<Esc>a"<Esc>bi"<esc>lel
+onoremap in( :<c-u>normal! f(vi(<cr>
+onoremap il( :<c-u>normal! F)vi(<cr>
+augroup testgroup
+	autocmd!
+	autocmd BufWritePre *.html :normal gg=G
+augroup END
+augroup groupun
+	autocmd!
+	autocmd FileType python :iabbrev <buffer> iff if:<left>
+augroup END
+augroup groupdeux
+	autocmd!
+	autocmd FileType javascript :iabbrev <buffer> iff if()<left>
+augroup END
+"currently learning charpter 16 @ stevelosh.com
+onoremap ih :<c-u>execute "normal! ?^==\\+$\r:nohlsearch\rkvg_"<cr>
+onoremap ih :<c-u>execute "normal! ?^==\\+$\r:nohlsearch\rg_vk0"<cr>
+
+"not working
+nnoremap <leader>< viw<esc>a><esc>bi<<esc>lel 
+
